@@ -10,8 +10,21 @@ import UIKit
 
 class ViewController: UITableViewController {
 
+    var persons = [Person]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let arr = [["name" : "格奥尔" , "age" : "80"],["name" : "格奥尔" , "age" : "80"],["name" : "格奥尔" , "age" : "80"],["name" : "格奥尔" , "age" : "80"],["name" : "格奥尔" , "age" : "80"]]
+        for ddd in arr {
+        
+            var p : Person = Person.init(dic : ddd)
+            print(p)
+            persons.append(p)
+        
+        }
+//        var dic : [String : String ] = ["name" : "格奥尔" , "age" : "80"]
+
+//            let p : Person = Person.init(dic : dic)
+      
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -21,12 +34,13 @@ class ViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return persons.count
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        cell.textLabel?.text = "this is title"
-        cell.detailTextLabel?.text = "this is detail title"
+        let cell  = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PersonCell
+        cell.person = persons[indexPath.row]
+//        cell.textLabel?.text = "this is title"
+//        cell.detailTextLabel?.text = "this is detail title"
         return cell
     }
 
