@@ -12,10 +12,16 @@ class Person: NSObject {
 
     var name : String?
     var age : String =  "0"
+    override init(){}
     init(dic : [String : AnyObject]) {
     
         super.init()
         self.setValuesForKeysWithDictionary(dic)
         
+    }
+    override var description : String{
+    let keyArr  = ["name" , "age"]
+    let valueArr = dictionaryWithValuesForKeys(keyArr)
+    return valueArr.description
     }
 }
