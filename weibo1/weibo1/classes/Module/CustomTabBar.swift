@@ -8,18 +8,18 @@
 
 import UIKit
 
-class CustomTabBar: UITabBar {
+class CustomTabBar: UITabBar {// 自定义tabBar
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print("这句话会打印吗")
-        addButton ()
+//        print("这句话会打印吗")
+        addButton ()//调用自定义的添加中间的那个黄色的加号按钮的方法 ,
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        addButton ()
+        self.addButton ()
     }
-    override func layoutSubviews() {
+    override func layoutSubviews() {//在布局子控件方法中调整内部按钮的位置, 给黄加号腾出一个位置
         var i : CGFloat = 0
         let barButtonW   = screenW/5
         let barButtonH = self.bounds.height
@@ -32,20 +32,19 @@ class CustomTabBar: UITabBar {
         }
         addBtn.frame=CGRectOffset(rect, barButtonW*2, 0)
 //        CGRectOffset(<#T##rect: CGRect##CGRect#>, <#T##dx: CGFloat##CGFloat#>, <#T##dy: CGFloat##CGFloat#>)
-        self.addSubview(addBtn)
+//        self.addSubview(addBtn)//这一步调用有点多余
     }
-    func addButton (){
+    func addButton (){//自定义添加 加号按钮的方法
     
-        self.addSubview(addBtn)
+        self.addSubview(addBtn)//给自定义的tabBar添加加号按钮 ,
     }
-    lazy var addBtn : UIButton = {
+    lazy var addBtn : UIButton = {//创建延迟存储属性(中间黄色的加号按钮), 并设置相关属性  
         let addBtnTemp = UIButton()
        
         //        addBtn.backgroundColor=themeColor
         addBtnTemp.setImage(UIImage(named: "tabbar_compose_icon_add"), forState: .Normal)
         addBtnTemp.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: .Highlighted)
         addBtnTemp.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: .Normal)
-//        addBtnTemp.backgroundColor=themeColor
         addBtnTemp.setBackgroundImage((UIImage(named: "tabbar_compose_button_highlighted")), forState: .Highlighted)
         addBtnTemp.sizeToFit()
 //        addBtnTemp.frame.origin.y=0

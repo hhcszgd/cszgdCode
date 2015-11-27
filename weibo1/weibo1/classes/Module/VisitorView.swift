@@ -8,9 +8,9 @@
 
 import UIKit
 
-class VisitorView: UIView {
+class VisitorView: UIView { // 自定义访客模式下显示的View
 
-    func setVisitorViewInfo(title : String , imgName : String){
+    func setVisitorViewInfo(title : String , imgName : String){//提供一个设置图片和lable的接口
         
          self.imgView.image =  UIImage(named: imgName)
        

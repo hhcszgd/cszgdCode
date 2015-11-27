@@ -8,20 +8,22 @@
 
 import UIKit
 import AFNetworking
+//:MARK window的根控制器
 class BarViewController: UITabBarController {
 
-    override func viewDidLoad() {
+    override func viewDidLoad() {//在试图加载完毕的viewDidLoad,把系统的tabBar换成自定义的,因为系统的tabBar时只读的, 不好设置frame
         super.viewDidLoad()
         let customTabBar = CustomTabBar()
-        setValue(customTabBar, forKeyPath: "tabBar")
-        customTabBar.addBtn.addTarget(self, action: "addBtnClick", forControlEvents: .TouchUpInside)
-        addVC()
+        setValue(customTabBar, forKeyPath: "tabBar")//利用KVC替换tabBar
+        customTabBar.addBtn.addTarget(self, action: "addBtnClick", forControlEvents: .TouchUpInside)//给tabBar上的黄色加号按钮添加监听方法
+        addVC()//调用自定义的给tabBarVC添加子控制器的方法
 
         // Do any additional setup after loading the view.
     }
     @objc private func addBtnClick (){
         print("点击加号按钮")
     }
+    //:MARK 自定义添加自控制器方法
     func addVC (){
         
         let homeTableVC = HomeTableViewController()
@@ -34,6 +36,7 @@ class BarViewController: UITabBarController {
         addVCMethod("我的", VC: profileTableVC, imgName: "tabbar_profile")
 
     }
+    //:MARK 抽取一个每一个控制器对应的按钮的图片和文字
     func addVCMethod(title : String , VC : UIViewController ,imgName : String ){
     
         let navVC = UINavigationController(rootViewController: VC)

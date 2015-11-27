@@ -10,3 +10,5 @@ import UIKit
 let screenW = UIScreen.mainScreen().bounds.width
 let screenH = UIScreen.mainScreen().bounds.height
 let themeColor = UIColor.orangeColor()
+let redirect_uri = "http://www.itcast.cn"
+let client_id = "583790955"
