@@ -8,20 +8,34 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
-
+class LoginVC: UIViewController , UIWebViewDelegate {
+let webView = UIWebView()
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", style: .Plain, target: self, action: "closeThisVC")
+        loadWebPage()
         // Do any additional setup after loading the view.
     }
-
+    override func loadView() {
+        view = webView
+        webView.delegate  =  self
+    }
+    func loadWebPage (){
+        let string : String = "http://www.baidu.com"
+        let url = NSURL(string: string)
+        let   request = NSURLRequest(URL : url!)
+        webView.loadRequest(request)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    func closeThisVC (){
+        dismissViewControllerAnimated(true , completion: nil)
+    }
     /*
     // MARK: - Navigation
 
