@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1569BC3E1C08288200BDB082 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1569BC3D1C08288200BDB082 /* LoginVC.swift */; };
 		15C913591C06D3FD0087A389 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C913581C06D3FD0087A389 /* AppDelegate.swift */; };
 		15C9135B1C06D3FD0087A389 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C9135A1C06D3FD0087A389 /* ViewController.swift */; };
 		15C913611C06D3FD0087A389 /* weibo1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15C9135F1C06D3FD0087A389 /* weibo1.xcdatamodeld */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		05A288540250C379990124F7 /* Pods-weibo1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weibo1/Pods-weibo1.debug.xcconfig"; sourceTree = "<group>"; };
+		1569BC3D1C08288200BDB082 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		15C913551C06D3FD0087A389 /* weibo1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C913581C06D3FD0087A389 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15C9135A1C06D3FD0087A389 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				15C9137A1C06D9420087A389 /* BarViewController.swift */,
 				15C913881C07438E0087A389 /* CustomTabBar.swift */,
 				15C9138A1C075F8C0087A389 /* BaseTabVC.swift */,
+				1569BC3D1C08288200BDB082 /* LoginVC.swift */,
 				15C9138C1C0762580087A389 /* VisitorView.swift */,
 			);
 			name = Main;
@@ -330,6 +333,7 @@
 				15C9137F1C06D9960087A389 /* DiscoverTableViewController.swift in Sources */,
 				15C913891C07438E0087A389 /* CustomTabBar.swift in Sources */,
 				15C913611C06D3FD0087A389 /* weibo1.xcdatamodeld in Sources */,
+				1569BC3E1C08288200BDB082 /* LoginVC.swift in Sources */,
 				15C9138B1C075F8C0087A389 /* BaseTabVC.swift in Sources */,
 				15C913851C073F250087A389 /* globalFile.swift in Sources */,
 				15C913811C06D9A80087A389 /* MessageTableViewController.swift in Sources */,

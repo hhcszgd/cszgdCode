@@ -29,6 +29,10 @@ class BaseTabVC: UITableViewController {
     }
     func loginButtonClick (){
         print("loginButtonClick")
+        let loginViewController = LoginVC()
+        let nav = UINavigationController(rootViewController : loginViewController)
+        nav.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "登录", style: .Plain, target: self, action: "closeThisVC")
+        presentViewController(nav, animated: true, completion: nil)
     }
     func registerButtonClick (){
         print("registerButtonClick")
