@@ -55,10 +55,19 @@ class VisitorView: UIView {
         return b
     }()
     
-//    lazy var registerBtn : UIButton  = {
-//        let btn = UIButton()
-//        
-//    
-//    }()
+    lazy var registerBtn : UIButton = {
+        let b = UIButton()
+        //        b.setBackgroundImage ( UIImage(named: "common_button_white_disable"))
+        b.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: .Normal)
+        b.setTitle("登陆", forState: .Normal)
+        b.backgroundColor = UIColor.purpleColor()
+        b.setTitleColor(UIColor.orangeColor(), forState: .Normal)
+        b.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        b.titleLabel?.font = UIFont.systemFontOfSize(16.0)
+        b.sizeToFit()
+        b.frame = CGRectMake(200,500,100,40)
+        return b
+    }()
+
 
 }

@@ -18,6 +18,8 @@ class BaseTabVC: UITableViewController {
         }else{
             visitorView.backgroundColor = UIColor.greenColor()
             self.view=visitorView
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "登录", style: .Plain, target: self, action: "loginButtonClick")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注册", style: .Plain, target: self, action: "registerButtonClick")
         }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -25,7 +27,12 @@ class BaseTabVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    func loginButtonClick (){
+        print("loginButtonClick")
+    }
+    func registerButtonClick (){
+        print("registerButtonClick")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
