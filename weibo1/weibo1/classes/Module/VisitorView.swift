@@ -55,6 +55,10 @@ class VisitorView: UIView {
         return b
     }()
     
-    lazy var register = UIButton()
+//    lazy var registerBtn : UIButton  = {
+//        let btn = UIButton()
+//        
+//    
+//    }()
 
 }
