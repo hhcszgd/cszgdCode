@@ -22,7 +22,7 @@ let webView = UIWebView()
         webView.delegate  =  self
     }
     func loadWebPage (){
-        let string : String = "http://www.baidu.com"
+        let string : String =  "https://api.weibo.com/oauth2/authorize?" + "client_id=" + "client_id" + "&redirect_uri=" + "redirect_uri"
         let url = NSURL(string: string)
         let   request = NSURLRequest(URL : url!)
         webView.loadRequest(request)
