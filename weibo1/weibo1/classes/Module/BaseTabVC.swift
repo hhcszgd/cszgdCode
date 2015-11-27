@@ -8,7 +8,7 @@
 
 import UIKit
 // :MARK 四个tableViewVC所继承的基类, 并在这个基类中做一些初始化操作,
-class BaseTabVC: UITableViewController {
+class BaseTabVC: UITableViewController , VisitorViewDelegate {//遵守登录注册按钮协议
 
     var isLogin = false//定义一个布尔变量 , 用来标记用户是否已经登录 , 如果登录, 就提供数据并显示, 如果没有登录 , 就提供一套访客视图 , 并提示用户登录或者注册
     let visitorView = VisitorView() // 定义一个全局的访客视图view ,
@@ -19,6 +19,7 @@ class BaseTabVC: UITableViewController {
         }else{//如果没有登录, 就提供一套访客视图
             visitorView.backgroundColor = UIColor.greenColor()//设置访客视图的背景颜色(每必要)
             self.view=visitorView//把tableView替换成自定义的访客visitorView
+            visitorView.visitorViewDelegate = self//设置登录注册按钮代理
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: "登录", style: .Plain, target: self, action: "loginButtonClick") //设置访客视图下 ,导航栏左右两侧的登录和注册按钮
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注册", style: .Plain, target: self, action: "registerButtonClick")
         }
@@ -27,6 +28,14 @@ class BaseTabVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    //实现登录注册按钮协议方法
+    func loginBtnDidClick (){
+    print("loginBtnDidClick")
+        loginButtonClick()
+    }
+    func registerDidBtnClick(){
+        print("registerDidBtnClick")
     }
     //:MARK 点击登录按钮的监听方法  , 弹出控制器
     func loginButtonClick (){
