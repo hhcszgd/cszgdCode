@@ -65,7 +65,7 @@ let webView = UIWebView()
 }
 //使用extension为当前类扩展协议方法,(这样更加模块儿化)
 extension LoginVC  : UIWebViewDelegate{
-
+    
     //代理方法
     func webViewDidStartLoad(webView: UIWebView){
         SVProgressHUD.show()
@@ -79,12 +79,13 @@ extension LoginVC  : UIWebViewDelegate{
 //    - (void)webViewDidFinishLoad:(UIWebView *)webView;
     func webViewDidFinishLoad (webView: UIWebView){
 //    SVProgressHUD.dismiss()
+    
     }
     
     // 实现webView的代理方法, 跟踪请求所相应的信息
  //    - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        print(request)
+        print ("打印打印打印:\(request)")
         //js  调用本地代码
         let urlString = request.URL?.absoluteString ?? ""
         
@@ -100,11 +101,36 @@ extension LoginVC  : UIWebViewDelegate{
         
         //获取授权码
         guard let query = request.URL?.query else {
+            //request.URL?的值是http://www.itcast.cn/?code=b245d8a9945b2a941168aeae3c2fb798
+            //request.URL?.query的值是code=b245d8a9945b2a941168aeae3c2fb798
             //获取不到参数列表
             return false
         }
+        print("看看 \(query)")
+
         let codeStr = "code="
         let code = query.substringFromIndex(codeStr.endIndex)
+
+        /**微博开发者平注册的 应用信息
+        let redirect_uri = "http://www.itcast.cn"
+        let client_id = "583790955"
+        */
+        /**点击导航栏的 "登录" 按钮 打印的请求链接
+        <NSMutableURLRequest: 0x7f9069e327d0> { URL: https://api.weibo.com/oauth2/authorize?client_id=583790955&redirect_uri=http://www.itcast.cn }
+        */
+        /**点击注册按钮 打印的请求链接
+        <NSMutableURLRequest: 0x7f9069e7b9c0> { URL: http://weibo.cn/dpool/ttt/h5/reg.php?wm=4406&appsrc=WfUcr&backURL=https%3A%2F%2Fapi.weibo.com%2F2%2Foauth2%2Fauthorize%3Fclient_id%3D583790955%26response_type%3Dcode%26display%3Dmobile%26redirect_uri%3Dhttp%253A%252F%252Fwww.itcast.cn%26from%3D%26with_cookie%3D }
+        */
+        /**输入账号密码后点击登录按钮 打印的请求链接
+        <NSMutableURLRequest: 0x7f906c246620> { URL: https://api.weibo.com/oauth2/authorize }
+        */
+        /**点击授权打印的请求链接
+        打印打印打印:<NSMutableURLRequest: 0x7f989af10510> { URL: https://api.weibo.com/oauth2/authorize# }
+        打印打印打印:<NSMutableURLRequest: 0x7f989ae2eea0> { URL: https://api.weibo.com/oauth2/authorize }
+        打印打印打印:<NSMutableURLRequest: 0x7f989d0c4060> { URL: http://www.itcast.cn/?code=12af58d1f5b71a2ae9952f03bd636cc8 }
+
+        */
+        
         //获取到code码
         //请求用户token
 //        loadAccessToken(code)
@@ -112,3 +138,6 @@ extension LoginVC  : UIWebViewDelegate{
     }
 
 }
+/**点击换个账号打印的链接 ,  没用, 打印着玩的
+<NSMutableURLRequest: 0x7f9069e84820> { URL: http://login.sina.com.cn/sso/logout.php?entry=openapi&r=https%3A%2F%2Fapi.weibo.com%2Foauth2%2Fauthorize%3Fclient_id%3D583790955%26redirect_uri%3Dhttp%3A%2F%2Fwww.itcast.cn }
+*/
