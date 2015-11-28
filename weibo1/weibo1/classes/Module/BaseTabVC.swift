@@ -10,7 +10,7 @@ import UIKit
 // :MARK 四个tableViewVC所继承的基类, 并在这个基类中做一些初始化操作,
 class BaseTabVC: UITableViewController , VisitorViewDelegate {//遵守登录注册按钮协议
 
-    var isLogin = false//定义一个布尔变量 , 用来标记用户是否已经登录 , 如果登录, 就提供数据并显示, 如果没有登录 , 就提供一套访客视图 , 并提示用户登录或者注册
+    var isLogin = UserAccountViewModel().userLogin//定义一个布尔变量 , 用来标记用户是否已经登录 , 如果登录, 就提供数据并显示, 如果没有登录 , 就提供一套访客视图 , 并提示用户登录或者注册
     let visitorView = VisitorView() // 定义一个全局的访客视图view ,
     //重写父类的viewDidLoad方法,并设置导航栏左右两侧的登录 和注册按钮
     override func viewDidLoad() {
