@@ -31,9 +31,9 @@ let webView = UIWebView()
     
     func autoAccount (){
         print("自动填充账号信息")
-        let js = "document.getElementById('userId').value = 'daoge10000@sina.cn';" +
-        "document.getElementById('passwd').value = 'qqq123';"
-        
+//        let js = "document.getElementById('userId').value = 'daoge10000@sina.cn';" +
+//        "document.getElementById('passwd').value = 'qqq123';"
+        let js = "document.getElementById('userId').value = 'leiggee@126.com', document.getElementById('passwd').value = 'oyonomg' "        //为什么非要用小雷的账号密码才可以呢???
         webView.stringByEvaluatingJavaScriptFromString(js)
     }
     
@@ -71,14 +71,9 @@ extension LoginVC  : UIWebViewDelegate{
         SVProgressHUD.show()
         
     }
-//    - (void)webViewDidStartLoad:(UIWebView *)webView;
-//    func webViewDidStartLoad(){
-//        SVProgressHUD.show()
-//
-//    }
-//    - (void)webViewDidFinishLoad:(UIWebView *)webView;
+
     func webViewDidFinishLoad (webView: UIWebView){
-//    SVProgressHUD.dismiss()
+    SVProgressHUD.dismiss()
     
     }
     
@@ -110,7 +105,23 @@ extension LoginVC  : UIWebViewDelegate{
 
         let codeStr = "code="
         let code = query.substringFromIndex(codeStr.endIndex)
-
+        //在这里创建一个viewModel 模型, 把获取token的数据都放在viewModel对应的类的方法中, 在通过对象方去调用方法,这个方法必须要有一个回调的闭包, 因为在获取完成token之后, 还要做一些处理, 比如提示数据加载失败还是成功
+        
+        let viewModel1 = UserAccountViewModel()//创建
+        //调用
+        viewModel1.loadToken(code) { (error) -> () in
+            //回调内容,
+//            判断error是否为空, 如果为空提示网络不好, 如果成功提示, 加载成功
+            if error != nil {
+            //加载失败
+            SVProgressHUD.showErrorWithStatus("网络繁忙 请稍后再试")
+                return
+            }
+            //能走到这里说明加载成功
+        }
+        SVProgressHUD.showSuccessWithStatus("加载成功")
+        
+        
         /**微博开发者平注册的 应用信息
         let redirect_uri = "http://www.itcast.cn"
         let client_id = "583790955"
@@ -134,7 +145,10 @@ extension LoginVC  : UIWebViewDelegate{
         //获取到code码
         //请求用户token
 //        loadAccessToken(code)
-        return false
+//                return true
+        SVProgressHUD.dismiss()
+        return false//怎么反回false ??因为不想让它跳转到回调网址, 后期会让它调到我们指定的微博页面的
+
     }
 
 }

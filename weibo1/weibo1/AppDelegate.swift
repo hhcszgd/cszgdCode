@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.whiteColor()
         window?.rootViewController = barVC
         window?.makeKeyAndVisible()
-        
+        let account = Account.loadAccount()
+
         return true
     }
 
