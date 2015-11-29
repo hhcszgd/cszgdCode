@@ -108,6 +108,12 @@ extension LoginVC  : UIWebViewDelegate{
         //在这里创建一个viewModel 模型, 把获取token的数据都放在viewModel对应的类的方法中, 在通过对象方去调用方法,这个方法必须要有一个回调的闭包, 因为在获取完成token之后, 还要做一些处理, 比如提示数据加载失败还是成功
         
         let viewModel1 = UserAccountViewModel()//创建
+        
+        
+        
+        
+        
+        
         //调用
         viewModel1.loadToken(code) { (error) -> () in
             //回调内容,

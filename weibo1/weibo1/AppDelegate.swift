@@ -20,7 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let barVC = BarViewController()
         window?.backgroundColor = UIColor.whiteColor()
-        window?.rootViewController = barVC
+//        window?.rootViewController = barVC
+        let collectionVC = NewFeatureCollectionVC()
+        window?.rootViewController = collectionVC
+        
         window?.makeKeyAndVisible()
         let account = Account.loadAccount()
 

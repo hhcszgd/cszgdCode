@@ -6,5 +6,7 @@
 target 'weibo1' do
 pod 'AFNetworking'
 pod 'SVProgressHUD'
+pod 'SnapKit'
+pod 'SDWebImage'
 end
 
