@@ -16,18 +16,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeVC:", name: JumpVCNotification, object: nil)
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let barVC = BarViewController()
+        let barVC = BarViewController()//主控制器
         window?.backgroundColor = UIColor.whiteColor()
-//        window?.rootViewController = barVC
-        let collectionVC = NewFeatureCollectionVC()
-        window?.rootViewController = collectionVC
+        window?.rootViewController = barVC
+        let collectionVC = NewFeatureCollectionVC()//新特性控制器
+        let welcomeVC = WelcomeVC()//欢迎界面控制器
+//        window?.rootViewController = welcomeVC
         
         window?.makeKeyAndVisible()
         let account = Account.loadAccount()
         isNewBuNew()
         return true
+    }
+    func changeVC (noti:NSNotification){
+        window?.rootViewController = noti.object == nil ? BarViewController() : WelcomeVC()
+        
+        
+    //判断用户是否登录
+        
+        //如果已经登录就检查是否是新版本,
+        
+            //如果是新版本跳转到新特性(再发通知自动跳转到主界面)
+            //如果不是新版本跳转到欢迎界面(再发通知自动跳转到主界面)
+        
+        //如果没有登录,跳转到主控制器的 访客视图界面
+        
+            //点击登录跳转到loginVC
+                //登录成功,跳转到欢迎界面(再发通知自动跳转到主界面)
+        
+        print("打印通知信息\(noti)")
+    }
+    
+    func returnVC () -> (UIViewController){
+        if UserAccountViewModel().userLogin {
+        
+        }
+        return BarViewController()
     }
     //判断新老版本
     func isNewBuNew (){

@@ -13,3 +13,5 @@ let themeColor = UIColor.orangeColor()
 let redirect_uri = "http://www.itcast.cn"
 let client_id = "583790955"
 let client_secret = "057a5bb5b5b2fe60f32da7836d0a5e97"
+//定义切换控制器的通知名
+let JumpVCNotification = "JumpVCNotification"

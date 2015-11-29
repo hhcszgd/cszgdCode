@@ -124,9 +124,15 @@ extension LoginVC  : UIWebViewDelegate{
                 return
             }
             //能走到这里说明加载成功
+            
         }
-        SVProgressHUD.showSuccessWithStatus("加载成功")
-        
+        self.dismissViewControllerAnimated(false) { () -> Void in
+            NSNotificationCenter.defaultCenter().postNotificationName(JumpVCNotification, object: "toWelcome")
+            //注意是先销毁上一个控制器, 还是先发通知的顺序问题
+        }
+        //MARK: 在这里发送跳转欢迎界面的通知
+        SVProgressHUD.showSuccessWithStatus("加载成功") //可以跳转  欢迎界面  的控制器了,
+//        NSNotificationCenter.defaultCenter().postNotificationName(JumpVCNotification, object: "toWelcome")
         
         /**微博开发者平注册的 应用信息
         let redirect_uri = "http://www.itcast.cn"
