@@ -1,0 +1,6 @@
+framework module Pods_weibo1 {
+  umbrella header "Pods-weibo1-umbrella.h"
+
+  export *
+  module * { export * }
+}
