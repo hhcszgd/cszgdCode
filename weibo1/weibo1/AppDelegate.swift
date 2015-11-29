@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+   
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -26,8 +26,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         let account = Account.loadAccount()
-
+        isNewBuNew()
         return true
+    }
+    //判断新老版本
+    func isNewBuNew (){
+         let dict =   NSBundle.mainBundle().infoDictionary
+        let currentVersion = (dict!["CFBundleShortVersionString"] as! NSString).doubleValue
+        
+       let userDef =  NSUserDefaults.standardUserDefaults()
+        let oldVersion = userDef.doubleForKey("versionNum")
+        if currentVersion > oldVersion {
+            print("新版本")
+        }else{
+            print("老版本")
+        }
+        userDef.setDouble(currentVersion, forKey: "versionNum")
+        print("版本信息\(currentVersion+1)")
+    
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -13,20 +13,21 @@ class UserAccountViewModel: NSObject {
     
     
     //qie
-    var account: Account?
+    var account: Account? // 这个account的数据来自沙盒存储的数据  , 跟下面的临时account没关系, 因为作用域问题 也不会导致冲突
     
-    override init() {
+    override init() {//这个方法的作用是 一方面可以实例化对象, 另一方面可以实例化一个可以从沙盒里取数据的account数据,
+        //可以用在appdelegate里面实例化并 判断属性userLogin 的值来判断用户是否已经登录
         super.init()
         account = Account.loadAccount()
     }
     
     //用户是否登录
     var userLogin: Bool {
-        return account?.access_token != nil
+        return account?.access_token != nil//如果token有值,说明用户是出于登录状态
     }
     
     var token: String? {
-        return account?.access_token
+        return account?.access_token //token的值来自登录账户模型 , 而账户模型数据是来自初始化方法中, 到沙盒去取得数据
     }
     
     
@@ -65,7 +66,7 @@ class UserAccountViewModel: NSObject {
             打印测试2["access_token": 2.00ml8IrF0JhWVdf0c1b97a85rQAtzB, "remind_in": 98015, "uid": 5365823342, "expires_in": 98015]
             */
             //如果转换成功, 就再这里(利用模型类的自定义初始化方法, 初始化方法可以用kvc设置属性值)创建一个数据模型,
-            let account = Account(dict: dic)
+            let account = Account(dict: dic)  //这个account是第一次存储用户token用到的 , 跟属性account没关系
             //利用account的token属性去获取用户信息, (此处抽取一个方法)
 //            self.loadUserInfo(account, finishCallBack: { (error) -> () in///////////////////////////
 //                finishCallBack(error: error)
@@ -78,7 +79,7 @@ class UserAccountViewModel: NSObject {
                 finishCallBack(error: error)
                 }
     }
-    func loadUserInfo (account : Account , finishCallBack : (error :NSError)->()){
+    func loadUserInfo (account : Account , finishCallBack : (error :NSError)->()){ //这个方法中的account是上一个方法传递过来的临时account,跟属性account无关
         //对应文档链接http://open.weibo.com/wiki/2/users/show
         let urlString = "https://api.weibo.com/2/users/show.json"
         //为了保险起见 判断一下

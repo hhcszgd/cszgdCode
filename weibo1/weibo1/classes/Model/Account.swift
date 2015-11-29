@@ -58,7 +58,7 @@ class Account: NSObject , NSCoding {
     }
     
     //从磁盘中 获取自定义对象
-    //class func  标示 类方法  和 OC  + 方法 一样
+    //class func是类方法
     class func loadAccount() -> Account? {//解档
         let path = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as NSString).stringByAppendingPathComponent("account.plist")
         //解归档
