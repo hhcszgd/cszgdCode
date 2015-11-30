@@ -17,7 +17,14 @@ class WelcomeVC: UIViewController {
     lazy var iconImgView = UIImageView(image: UIImage(named: "avatar_default_big"))
     lazy var welcomeLabel : UILabel = {
         var tempLabel = UILabel()
-        let name = UserAccountViewModel().account!.name
+        var account = UserAccountViewModel()
+//        let name = UserAccountViewModel().account!.name
+        print("WelcomeVC的用户模型是否有值\(account)")
+        print("WelcomeVC的用户模型的account是否有值\(account.account)")
+        print("WelcomeVC的用户模型token是否有值\(account.token)")
+        
+                var name = account.userName
+
         tempLabel.text = name! + "  欢迎回来"
         tempLabel.font = UIFont.systemFontOfSize(22.0)
         tempLabel.textColor = UIColor.darkGrayColor()
@@ -35,8 +42,11 @@ class WelcomeVC: UIViewController {
     }
     func layoutUI (){
 //        let icon = iconImgView.sd_setImageWithURL(UserAccountViewModel().account.avatar_large, completed: <#T##SDWebImageCompletionBlock!##SDWebImageCompletionBlock!##(UIImage!, NSError!, SDImageCacheType, NSURL!) -> Void#>)
-        let url = NSURL(string: UserAccountViewModel().account!.avatar_large!)
-     iconImgView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "avatar_default_big"))
+//        let url = NSURL( UserAccountViewModel().headImageURL)
+        
+        
+        
+    iconImgView.sd_setImageWithURL(UserAccountViewModel().headImageURL, placeholderImage: UIImage(named: "avatar_default_big"))
         view.addSubview(iconImgView)
         view.addSubview(welcomeLabel)
         //好吧, 开始自动布局, 早晚都跑不掉的

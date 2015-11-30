@@ -19,20 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeVC:", name: JumpVCNotification, object: nil)
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let barVC = BarViewController()//主控制器
         window?.backgroundColor = UIColor.whiteColor()
-        window?.rootViewController = barVC
-        let collectionVC = NewFeatureCollectionVC()//新特性控制器
-        let welcomeVC = WelcomeVC()//欢迎界面控制器
-//        window?.rootViewController = welcomeVC
-        
+        window?.rootViewController =  returnVC ()//UINavigationController(rootViewController:  LoginVC())//
         window?.makeKeyAndVisible()
-        let account = Account.loadAccount()
-        isNewBuNew()
-        return true
+//        let account = Account.loadAccount()
+               return true
     }
     func changeVC (noti:NSNotification){
-        window?.rootViewController = noti.object == nil ? BarViewController() : WelcomeVC()
+        window?.rootViewController = noti.object == nil ? BarViewController () : WelcomeVC()
+        print("通知来了,走不走")
         
         
     //判断用户是否登录
@@ -52,12 +47,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func returnVC () -> (UIViewController){
         if UserAccountViewModel().userLogin {
+            if isNewBuNew() {
+                return NewFeatureCollectionVC()
+            
+            }
+                return WelcomeVC()
         
+            
         }
         return BarViewController()
     }
     //判断新老版本
-    func isNewBuNew (){
+    func isNewBuNew () ->Bool{
          let dict =   NSBundle.mainBundle().infoDictionary
         let currentVersion = (dict!["CFBundleShortVersionString"] as! NSString).doubleValue
         
@@ -65,11 +66,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let oldVersion = userDef.doubleForKey("versionNum")
         if currentVersion > oldVersion {
             print("新版本")
+            userDef.setDouble(currentVersion, forKey: "versionNum")
+            print("版本信息\(currentVersion+1)")
+            return true
+            
         }else{
             print("老版本")
+            return false
         }
-        userDef.setDouble(currentVersion, forKey: "versionNum")
-        print("版本信息\(currentVersion+1)")
+
     
     }
 

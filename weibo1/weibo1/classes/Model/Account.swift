@@ -53,19 +53,21 @@ class Account: NSObject , NSCoding {
         //保存到沙盒路径   stringbyappendingpathcomment          //在Xcode 7.0  消失了
         let path = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as NSString).stringByAppendingPathComponent("account.plist")
         NSKeyedArchiver.archiveRootObject(self, toFile: path)
-        
+        print("duidang测试测试测试\(self.uid)")
         print(path)
     }
     
     //从磁盘中 获取自定义对象
     //class func是类方法
     class func loadAccount() -> Account? {//解档
+        print("Account模型中,解档这一会不会进来")
         let path = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as NSString).stringByAppendingPathComponent("account.plist")
         //解归档
         if let account = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? Account {
-            
+             print("fanguidang测试测试测试\(account.uid)")
             //添加过期日期判断
             if account.expires_date?.compare(NSDate()) == NSComparisonResult.OrderedDescending {
+                print("在数据模型中解档以后会走这一步吗 , 取出来的值是\(account)")
                 return account
             }
         }

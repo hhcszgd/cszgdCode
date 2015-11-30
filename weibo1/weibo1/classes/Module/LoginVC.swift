@@ -109,14 +109,10 @@ extension LoginVC  : UIWebViewDelegate{
         
         let viewModel1 = UserAccountViewModel()//创建
         
-        
-        
-        
-        
-        
         //调用
-        viewModel1.loadToken(code) { (error) -> () in
+        viewModel1.loadToken(code) { (error) -> () in// 回调闭包不执行??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
             //回调内容,
+            print("看看取出来的值\(UserAccountViewModel().userName)")
 //            判断error是否为空, 如果为空提示网络不好, 如果成功提示, 加载成功
             if error != nil {
             //加载失败
@@ -124,12 +120,24 @@ extension LoginVC  : UIWebViewDelegate{
                 return
             }
             //能走到这里说明加载成功
+            self.dismissViewControllerAnimated(false) { () -> Void in
+                print("咳咳,这里是登陆控制器, 能走到这吗")
+                            NSNotificationCenter.defaultCenter().postNotificationName(JumpVCNotification, object: "toWelcome")//注意注意, 销毁自己这个控制器一定要再回调方法里进行, 因为要保证后面被调用的方法执行完毕之后才能销毁自己, 不然的话, 把自己销毁了并且把通知发出去的话, 一方面自己可能不会被销毁, 另一方面, appdelegate可能就已经把跟控制器替换掉了
+                //注意是先销毁上一个控制器, 还是先发通知的顺序问题
+            }
             
         }
-        self.dismissViewControllerAnimated(false) { () -> Void in
-            NSNotificationCenter.defaultCenter().postNotificationName(JumpVCNotification, object: "toWelcome")
-            //注意是先销毁上一个控制器, 还是先发通知的顺序问题
-        }
+        
+        
+        
+        
+        
+        
+//        self.dismissViewControllerAnimated(false) { () -> Void in
+//            print("咳咳,这里是登陆控制器, 能走到这吗")
+////            NSNotificationCenter.defaultCenter().postNotificationName(JumpVCNotification, object: "toWelcome")
+//            //注意是先销毁上一个控制器, 还是先发通知的顺序问题
+//        }
         //MARK: 在这里发送跳转欢迎界面的通知
         SVProgressHUD.showSuccessWithStatus("加载成功") //可以跳转  欢迎界面  的控制器了,
 //        NSNotificationCenter.defaultCenter().postNotificationName(JumpVCNotification, object: "toWelcome")
