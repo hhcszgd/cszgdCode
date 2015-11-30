@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-   
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeVC:", name: JumpVCNotification, object: nil)
         // Override point for customization after application launch.

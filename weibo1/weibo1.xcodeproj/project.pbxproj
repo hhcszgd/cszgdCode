@@ -25,6 +25,8 @@
 		15C913891C07438E0087A389 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C913881C07438E0087A389 /* CustomTabBar.swift */; };
 		15C9138B1C075F8C0087A389 /* BaseTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C9138A1C075F8C0087A389 /* BaseTabVC.swift */; };
 		15C9138D1C0762580087A389 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C9138C1C0762580087A389 /* VisitorView.swift */; };
+		15D8840A1C0C12E700F1467B /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D884091C0C12E700F1467B /* Button+Extension.swift */; };
+		15D8840C1C0C133100F1467B /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D8840B1C0C133100F1467B /* Label+Extension.swift */; };
 		2ED424024104A41C2A384524 /* Pods_weibo1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ECE01DDD172FB4E53B94A1 /* Pods_weibo1.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,8 @@
 		15C913881C07438E0087A389 /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		15C9138A1C075F8C0087A389 /* BaseTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabVC.swift; sourceTree = "<group>"; };
 		15C9138C1C0762580087A389 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
+		15D884091C0C12E700F1467B /* Button+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
+		15D8840B1C0C133100F1467B /* Label+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Label+Extension.swift"; sourceTree = "<group>"; };
 		22ECE01DDD172FB4E53B94A1 /* Pods_weibo1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weibo1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFCE70E29C5210CA2C1E553 /* Pods-weibo1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo1.release.xcconfig"; path = "Pods/Target Support Files/Pods-weibo1/Pods-weibo1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				15C913841C073F250087A389 /* globalFile.swift */,
+				15D8840B1C0C133100F1467B /* Label+Extension.swift */,
+				15D884091C0C12E700F1467B /* Button+Extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -353,6 +359,8 @@
 				1568448C1C0AD1F0000E7168 /* WelcomeVC.swift in Sources */,
 				15C913851C073F250087A389 /* globalFile.swift in Sources */,
 				15C913811C06D9A80087A389 /* MessageTableViewController.swift in Sources */,
+				15D8840A1C0C12E700F1467B /* Button+Extension.swift in Sources */,
+				15D8840C1C0C133100F1467B /* Label+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

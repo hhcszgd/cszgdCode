@@ -16,7 +16,7 @@ class WelcomeVC: UIViewController {
   lazy  var welcomeImgView = UIImageView(image: UIImage(named: "ad_background"))
     lazy var iconImgView = UIImageView(image: UIImage(named: "avatar_default_big"))
     lazy var welcomeLabel : UILabel = {
-        var tempLabel = UILabel()
+       
         var account = UserAccountViewModel()
 //        let name = UserAccountViewModel().account!.name
         print("WelcomeVC的用户模型是否有值\(account)")
@@ -25,11 +25,12 @@ class WelcomeVC: UIViewController {
         
                 var name = account.userName
 
-        tempLabel.text = name! + "  欢迎回来"
-        tempLabel.font = UIFont.systemFontOfSize(22.0)
-        tempLabel.textColor = UIColor.darkGrayColor()
-        tempLabel.textAlignment = NSTextAlignment.Center
-        tempLabel.sizeToFit()
+         var tempLabel = UILabel(titleStr: name! + "  欢迎回来", fontSize: 22.0, titleColor: UIColor.darkGrayColor())
+//        tempLabel.text = name! + "  欢迎回来"
+//        tempLabel.font = UIFont.systemFontOfSize(22.0)
+//        tempLabel.textColor = UIColor.darkGrayColor()
+//        tempLabel.textAlignment = NSTextAlignment.Center
+//        tempLabel.sizeToFit()
         return tempLabel
     }()
     override func loadView() {

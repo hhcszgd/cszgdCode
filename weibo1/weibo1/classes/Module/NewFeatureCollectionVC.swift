@@ -171,7 +171,7 @@ class CustomCell : UICollectionViewCell {
             //执行动画
             self.btn.transform = CGAffineTransformMakeScale(1, 1)
             }) { (_ ) -> Void in
-                //啥也不淡
+                //啥也不干
         }
     }
     required init?(coder aDecoder: NSCoder) {

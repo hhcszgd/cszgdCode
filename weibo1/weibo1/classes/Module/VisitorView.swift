@@ -49,7 +49,8 @@ class VisitorView: UIView { // 自定义访客模式下显示的View
     return im
     
     }()
-    lazy var tipLable :UILabel = {
+    lazy var tipLable :UILabel = //UILabel(titleStr: "这里是首页, 赶紧登陆吧", fontSize: 19.0 , titleColor: UIColor.redColor())
+    {
     
       
         let label = UILabel()
@@ -77,19 +78,22 @@ class VisitorView: UIView { // 自定义访客模式下显示的View
         return b
     }()
     
-    lazy var registerBtn : UIButton = {
-        let b = UIButton()
-        //        b.setBackgroundImage ( UIImage(named: "common_button_white_disable"))
-        b.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: .Normal)
-        b.setTitle("注册", forState: .Normal)
-        b.backgroundColor = UIColor.purpleColor()
-        b.setTitleColor(UIColor.orangeColor(), forState: .Normal)
-        b.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        b.titleLabel?.font = UIFont.systemFontOfSize(16.0)
-        b.sizeToFit()
-        b.frame = CGRectMake(200,500,100,40)
-        return b
-    }()
+    lazy var registerBtn : UIButton = UIButton(title: "注册", backImgName: "common_button_white_disable", backColor: UIColor.orangeColor(), titleColor: UIColor.blueColor(), titleFontSize: 16.0)
+//    {
+//        
+//        
+//        let b = UIButton()
+//        //        b.setBackgroundImage ( UIImage(named: "common_button_white_disable"))
+//        b.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: .Normal)
+//        b.setTitle("注册", forState: .Normal)
+//        b.backgroundColor = UIColor.purpleColor()
+//        b.setTitleColor(UIColor.orangeColor(), forState: .Normal)
+//        b.setTitleColor(UIColor.blueColor(), forState: .Normal)
+//        b.titleLabel?.font = UIFont.systemFontOfSize(16.0)
+//        b.sizeToFit()
+//        b.frame = CGRectMake(200,500,100,40)
+//        return b
+//    }()
 
 
 }
