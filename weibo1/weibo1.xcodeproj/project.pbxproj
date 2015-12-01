@@ -28,6 +28,7 @@
 		15D8840A1C0C12E700F1467B /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D884091C0C12E700F1467B /* Button+Extension.swift */; };
 		15D8840C1C0C133100F1467B /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D8840B1C0C133100F1467B /* Label+Extension.swift */; };
 		15D884101C0CA6C400F1467B /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D8840F1C0CA6C400F1467B /* Status.swift */; };
+		15D884121C0CA78D00F1467B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D884111C0CA78D00F1467B /* User.swift */; };
 		2ED424024104A41C2A384524 /* Pods_weibo1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ECE01DDD172FB4E53B94A1 /* Pods_weibo1.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		15D884091C0C12E700F1467B /* Button+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		15D8840B1C0C133100F1467B /* Label+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Label+Extension.swift"; sourceTree = "<group>"; };
 		15D8840F1C0CA6C400F1467B /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		15D884111C0CA78D00F1467B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22ECE01DDD172FB4E53B94A1 /* Pods_weibo1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weibo1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFCE70E29C5210CA2C1E553 /* Pods-weibo1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo1.release.xcconfig"; path = "Pods/Target Support Files/Pods-weibo1/Pods-weibo1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 			children = (
 				154E429C1C0A054A00E89724 /* Account.swift */,
 				15D8840F1C0CA6C400F1467B /* Status.swift */,
+				15D884111C0CA78D00F1467B /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				15C913811C06D9A80087A389 /* MessageTableViewController.swift in Sources */,
 				15D8840A1C0C12E700F1467B /* Button+Extension.swift in Sources */,
 				15D8840C1C0C133100F1467B /* Label+Extension.swift in Sources */,
+				15D884121C0CA78D00F1467B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
