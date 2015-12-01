@@ -24,5 +24,12 @@ extension UIButton {
         self.frame = CGRectMake(200,500,100,40)
     
     }
+    convenience init (title : String , imgName : String , fontSize : CGFloat){
+        self.init()
+        setImage(UIImage(named:imgName), forState: UIControlState.Normal)
+        setTitle(title, forState: .Normal)
+        setTitleColor(UIColor.greenColor(), forState: .Normal)
+        titleLabel?.font = UIFont.systemFontOfSize(fontSize)
+    }
 
 }

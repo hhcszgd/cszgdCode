@@ -79,10 +79,11 @@ class HomeTableViewController: BaseTabVC {
         //注册cell
         tableView.registerClass(StatusCell.self, forCellReuseIdentifier: "HomeCell")
         //预估行高等等
-//        tableView.estimatedRowHeight = 100
+//        tableView.estimatedRowHeight = 300
 //        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.separatorStyle = .None
 
-        tableView.rowHeight = 200
+        tableView.rowHeight = 300
     }
 
     override func didReceiveMemoryWarning() {
@@ -111,8 +112,6 @@ class HomeTableViewController: BaseTabVC {
 
         return cell
     }
-  
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

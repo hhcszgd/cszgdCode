@@ -25,6 +25,7 @@ class StatusCell: UITableViewCell {
   
     private lazy var statusOriginalView : StatusOriginalView = StatusOriginalView()
     private lazy var statusBottomView : StatusBottomView = StatusBottomView()
+    private lazy var statusPicView : StatusPicView = StatusPicView()
     var status: Status? {
         didSet {
                         statusOriginalView.status = status
@@ -35,13 +36,23 @@ class StatusCell: UITableViewCell {
         setUpUI()
     }
     func setUpUI(){
+        
         contentView.addSubview(statusOriginalView)
-        contentView.addSubview(statusBottomView)
+        contentView.addSubview(statusBottomView)        
         statusOriginalView.snp_makeConstraints { (make) -> Void in
-            make.top.left.equalTo(contentView)
-            //            make.height.width.equalTo(50)//看看效果.先
-
+            make.top.left.right.equalTo(contentView)
         }
+
+        statusBottomView.snp_makeConstraints { (make) -> Void in
+            make.left.right.equalTo(contentView)
+            make.top.equalTo(statusOriginalView.snp_bottom)
+            make.height.equalTo(40)
+//            make.bottom.equalTo(contentView)
+        }
+//        contentView.snp_makeConstraints { (make) -> Void in
+////            make.top.left.right.equalTo(self)
+//            make.bottom.equalTo(statusBottomView.snp_bottom)
+//        }
         
     }
     
