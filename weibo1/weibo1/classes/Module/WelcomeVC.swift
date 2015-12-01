@@ -19,9 +19,9 @@ class WelcomeVC: UIViewController {
        
         var account = UserAccountViewModel()
 //        let name = UserAccountViewModel().account!.name
-        print("WelcomeVC的用户模型是否有值\(account)")
-        print("WelcomeVC的用户模型的account是否有值\(account.account)")
-        print("WelcomeVC的用户模型token是否有值\(account.token)")
+//        print("WelcomeVC的用户模型是否有值\(account)")
+//        print("WelcomeVC的用户模型的account是否有值\(account.account)")
+//        print("WelcomeVC的用户模型token是否有值\(account.token)")
         
                 var name = account.userName
 
@@ -78,7 +78,7 @@ class WelcomeVC: UIViewController {
         UIView.animateWithDuration(3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 9.0, options: [], animations: { () -> Void in
             self.view.layoutIfNeeded()
             }) { (_) -> Void in
-                print("欢迎页面加载完成,跳转到主视图控制器")
+//                print("欢迎页面加载完成,跳转到主视图控制器")
                 //在这儿发送通知
                 NSNotificationCenter.defaultCenter().postNotificationName(JumpVCNotification, object: nil)
         }

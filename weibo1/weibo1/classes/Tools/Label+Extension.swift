@@ -8,7 +8,7 @@
 
 import UIKit
 extension UILabel {
-    convenience init (titleStr : String , fontSize : CGFloat , titleColor : UIColor ){
+    convenience init (titleStr : String , fontSize : CGFloat , titleColor : UIColor , margin : CGFloat = 0 ){
     
         self.init()
         
@@ -18,6 +18,11 @@ extension UILabel {
 //        frame = CGRectMake (100 , 444 , 200,29)
         textAlignment = NSTextAlignment.Center
         textColor = titleColor
+        if margin > 0 {
+            textAlignment = .Left
+            preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - margin*2
+        
+        }
         sizeToFit()
     
     }

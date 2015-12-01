@@ -148,7 +148,7 @@ class CustomCell : UICollectionViewCell {
         
     }
     func jumpTabBarVC(){
-        print(" 新特性展示成功 , 点击跳转到主控制器界面 ")
+//        print(" 新特性展示成功 , 点击跳转到主控制器界面 ")
         //发送通知让appdelegate去跳转
         NSNotificationCenter.defaultCenter().postNotificationName(JumpVCNotification, object: nil)
     }

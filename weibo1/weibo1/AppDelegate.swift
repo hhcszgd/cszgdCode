@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func changeVC (noti:NSNotification){
         window?.rootViewController = noti.object == nil ? BarViewController () : WelcomeVC()
-        print("通知来了,走不走")
+//        print("通知来了,走不走")
         
         
     //判断用户是否登录
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //点击登录跳转到loginVC
                 //登录成功,跳转到欢迎界面(再发通知自动跳转到主界面)
         
-        print("打印通知信息\(noti)")
+//        print("打印通知信息\(noti)")
     }
     
     func returnVC () -> (UIViewController){
@@ -64,13 +64,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        let userDef =  NSUserDefaults.standardUserDefaults()
         let oldVersion = userDef.doubleForKey("versionNum")
         if currentVersion > oldVersion {
-            print("新版本")
+//            print("新版本")
             userDef.setDouble(currentVersion, forKey: "versionNum")
-            print("版本信息\(currentVersion+1)")
+//            print("版本信息\(currentVersion+1)")
             return true
             
         }else{
-            print("老版本")
+//            print("老版本")
             return false
         }
 

@@ -19,7 +19,7 @@ class UserAccountViewModel: NSObject {
         //可以用在appdelegate里面实例化并 判断属性userLogin 的值来判断用户是否已经登录
         super.init()
         account = Account.loadAccount()
-        print("在VM类中 用户模型是否有值\(account)")
+//        print("在VM类中 用户模型是否有值\(account)")
     }
     
     //用户是否登录
@@ -56,17 +56,17 @@ class UserAccountViewModel: NSObject {
         let urlString = "https://api.weibo.com/oauth2/access_token"//微博官网提供的请求url
         let param = ["client_id": client_id, "client_secret" : client_secret,"grant_type":"authorization_code","code":code, "redirect_uri":redirect_uri]
         let netManager = AFHTTPSessionManager()
-        print("ddddddddddddddddddddddddddddddddddddddddd2")
+//        print("ddddddddddddddddddddddddddddddddddddddddd2")
 
         netManager.responseSerializer.acceptableContentTypes?.insert("text/plain")
         netManager.POST(urlString, parameters: param, success: { (_, result) -> Void in
             //加载成功处理
             guard let dic = result as? [String : AnyObject] else {
-                print("ddddddddddddddddddddddddddddddddddddddddd1")
+//                print("ddddddddddddddddddddddddddddddddddddddddd1")
                 return
             }
-            print("打印测试1\(result)")
-            print("打印测试2\(dic)")
+//            print("打印测试1\(result)")
+//            print("打印测试2\(dic)")
 
             /**
             打印测试1{
@@ -83,15 +83,15 @@ class UserAccountViewModel: NSObject {
 //            self.loadUserInfo(account, finishCallBack: { (error) -> () in///////////////////////////
 //                finishCallBack(error: error)
 //            })
-            print("ddddddddddddddddddddddddddddddddddddddddd3")
+//            print("ddddddddddddddddddddddddddddddddddddddddd3")
 
             self.loadUserInfo(account, finishCallBack: finishCallBack)
 //            self.loadUserInfo(account, finishCallBack: { (error) -> () in
 //                ////////////////////////////////
 //            })
-            print("ddddddddddddddddddddddddddddddddddddddddd4")
+//            print("ddddddddddddddddddddddddddddddddddddddddd4")
 
-            print("字典转模型\(account)")
+//            print("字典转模型\(account)")
             }) { (_, error) -> Void in
                 //加载失败处理
                 print("错误信息\(error)")
@@ -115,7 +115,7 @@ class UserAccountViewModel: NSObject {
             account.name = result["name"] as? String
             account.saveAccount()
             //在这儿归档
-            print("测试一下归档的时候account有数据没\(account)")
+//            print("测试一下归档的时候account有数据没\(account)")
             finishCallBack(error: nil)//   草泥马,闭包的作用???????,为什么这儿调 , 下面还要调
             
             }) { (_, error) -> Void in

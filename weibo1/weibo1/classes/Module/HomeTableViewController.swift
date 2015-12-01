@@ -23,7 +23,7 @@ class HomeTableViewController: BaseTabVC {
             return
         }
         prepearForTableViewInfo()//布局tableView相关属性
-        loadDataSource { (list) -> () in
+        loadDataSource { (list) -> () in//根据token去加载所需数据
             guard let temp  = list else {
                 SVProgressHUD.showErrorWithStatus("数据加载失败")
                 return
@@ -32,7 +32,7 @@ class HomeTableViewController: BaseTabVC {
             
             //记录数组
             self.statuses = temp
-            self.tableView.reloadData()
+            self.tableView.reloadData()//代码是在viewDidLoad中加载的, 当view加载完成后,就刷新yix
 //            print("打印statuses:\(self.statuses)")
         } //加载数据源
         // Uncomment the following line to preserve selection between presentations
@@ -64,7 +64,7 @@ class HomeTableViewController: BaseTabVC {
            var list = [Status]()
             //遍历数组, 转化成模型  , 先去创建一个单条微博的模型
             for oneStatus in statuses {
-             print("加载微博数据\(oneStatus)")
+//             print("加载微博数据\(oneStatus)")
                 //转模型, 去创建单条微博数据模型, 再回来转
                 list.append( Status.init(dic: oneStatus))
             }
@@ -77,9 +77,12 @@ class HomeTableViewController: BaseTabVC {
     }
     func prepearForTableViewInfo (){
         //注册cell
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "HomeCell")
+        tableView.registerClass(StatusCell.self, forCellReuseIdentifier: "HomeCell")
         //预估行高等等
+//        tableView.estimatedRowHeight = 100
+//        tableView.rowHeight = UITableViewAutomaticDimension
 
+        tableView.rowHeight = 200
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,8 +105,8 @@ class HomeTableViewController: BaseTabVC {
 
    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell", forIndexPath: indexPath)
-        cell.textLabel?.text = statuses[indexPath.row].user?.name
+        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell", forIndexPath: indexPath) as! StatusCell
+        cell.status = statuses[indexPath.row]
         
 
         return cell

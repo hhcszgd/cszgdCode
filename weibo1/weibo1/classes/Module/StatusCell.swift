@@ -19,10 +19,12 @@ cell里面分两大部分
 2 , 底部评论,转发等视图部分
 */
 import UIKit
-
+  let margin : CGFloat = 10.0
+    let iconWidth : CGFloat = 35.0
 class StatusCell: UITableViewCell {
+  
     private lazy var statusOriginalView : StatusOriginalView = StatusOriginalView()
-
+    private lazy var statusBottomView : StatusBottomView = StatusBottomView()
     var status: Status? {
         didSet {
                         statusOriginalView.status = status
@@ -33,9 +35,48 @@ class StatusCell: UITableViewCell {
         setUpUI()
     }
     func setUpUI(){
-    
-    }
+        contentView.addSubview(statusOriginalView)
+        contentView.addSubview(statusBottomView)
+        statusOriginalView.snp_makeConstraints { (make) -> Void in
+            make.top.left.equalTo(contentView)
+            //            make.height.width.equalTo(50)//看看效果.先
 
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+///////////////////////以下都是没用的东西//////////////////////////////
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
