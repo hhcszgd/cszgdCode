@@ -8,8 +8,11 @@
 
 import UIKit
 import AFNetworking
+import SVProgressHUD
 class HomeTableViewController: BaseTabVC {
-
+//    var statuses : [Status]?//这样定义的话, 一定要确保给这个属性初始化 =[Status]()即可
+    //添加数组属性
+    private lazy var statuses = [Status]()
     override func viewDidLoad() {
 /////////////////////////////////////在给tableViewCell注册之前必须判断 用户是否处于登录状态, 如果是处于登录状态, 才去注册,并实现相应的代理方法和数据源方法  可以通过父类的属性isLogin 来判断当前用户是否是处于登录状态
         
@@ -20,7 +23,18 @@ class HomeTableViewController: BaseTabVC {
             return
         }
         prepearForTableViewInfo()//布局tableView相关属性
-        loadDataSource()//加载数据源
+        loadDataSource { (list) -> () in
+            guard let temp  = list else {
+                SVProgressHUD.showErrorWithStatus("数据加载失败")
+                return
+            }
+            
+            
+            //记录数组
+            self.statuses = temp
+            self.tableView.reloadData()
+//            print("打印statuses:\(self.statuses)")
+        } //加载数据源
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -28,7 +42,7 @@ class HomeTableViewController: BaseTabVC {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 
     }
-    func loadDataSource (){
+    func loadDataSource ( finished: (list :[Status]?) ->() ){
         //官方URL 
         let urlStr = "https://api.weibo.com/2/statuses/home_timeline.json"
         //设置加载数据所需的token数据并加载微博数据
@@ -47,13 +61,15 @@ class HomeTableViewController: BaseTabVC {
                 
                 return
             }
-            
+           var list = [Status]()
             //遍历数组, 转化成模型  , 先去创建一个单条微博的模型
             for oneStatus in statuses {
              print("加载微博数据\(oneStatus)")
                 //转模型, 去创建单条微博数据模型, 再回来转
-                
+                list.append( Status.init(dic: oneStatus))
             }
+//            print("打印list:\(list)")
+            finished(list: list)
           
             }) { (_, error) -> Void in
                 //错误处理
@@ -75,23 +91,24 @@ class HomeTableViewController: BaseTabVC {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return statuses.count
+//        return 0
     }
 
-    /*
+   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell", forIndexPath: indexPath)
+        cell.textLabel?.text = statuses[indexPath.row].user?.name
+        
 
         return cell
     }
-    */
+  
 
     /*
     // Override to support conditional editing of the table view.
