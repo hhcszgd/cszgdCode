@@ -53,23 +53,10 @@ class StatusCell: UITableViewCell {
         }
         contentView.snp_makeConstraints { (make) -> Void in
             make.top.left.right.equalTo(self)
-            make.bottom.equalTo(statusBottomView.snp_bottom).offset(10)
+            make.bottom.equalTo(statusBottomView.snp_bottom)//.offset(10)
         }
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

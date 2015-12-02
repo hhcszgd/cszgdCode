@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
+import SnapKit
 class StatusOriginalView: UIView {
-
+    var constrain : Constraint?
     var status : Status? {
         didSet {
      
@@ -21,6 +21,19 @@ class StatusOriginalView: UIView {
             pictureView.imageURLs = status?.imageURLs//给collectionView传递数据
 //            creatTimeLabel.text = status?.created_at
 //            source.text = status?.source
+            if let tempURLs = status?.imageURLs where tempURLs.count != 0{
+                pictureView.imageURLs = tempURLs
+                self.snp_updateConstraints(closure: { (make) -> Void in
+                    self.constrain = make.bottom.equalTo(pictureView.snp_bottom).offset(margin).constraint
+                })
+                pictureView.hidden = false
+            }else{
+                self.snp_makeConstraints(closure: { (make) -> Void in
+                    self.constrain = make.bottom.equalTo(textLabel.snp_bottom).constraint
+                })
+            }
+            
+            
         }
     }
      override  init(frame: CGRect) {
@@ -78,7 +91,7 @@ class StatusOriginalView: UIView {
        
         
         self.snp_makeConstraints { (make) -> Void in
-            make.bottom.equalTo(pictureView.snp_bottom)
+          self.constrain =  make.bottom.equalTo(pictureView.snp_bottom).constraint
         }
 
     }

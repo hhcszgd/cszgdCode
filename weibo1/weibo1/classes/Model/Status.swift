@@ -9,6 +9,8 @@
 import UIKit
 
 class Status: NSObject {
+    //转发的微博
+    var retweeted_status : Status?//这个属性的类型跟Status模型的层次结构是一模一样的
     ///微博创建时间
     var created_at: String?
     //微博ID

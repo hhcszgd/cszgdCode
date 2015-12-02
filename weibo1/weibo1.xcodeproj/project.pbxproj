@@ -34,6 +34,7 @@
 		15D8841F1C0D74EA00F1467B /* StatusOriginalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D8841E1C0D74EA00F1467B /* StatusOriginalView.swift */; };
 		15D884211C0D751200F1467B /* StatusBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D884201C0D751200F1467B /* StatusBottomView.swift */; };
 		15F5D7681C0F1C5A00B4BD77 /* PicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F5D7671C0F1C5A00B4BD77 /* PicView.swift */; };
+		15F5D76A1C0F393100B4BD77 /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F5D7691C0F393100B4BD77 /* NetworkTool.swift */; };
 		2ED424024104A41C2A384524 /* Pods_weibo1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ECE01DDD172FB4E53B94A1 /* Pods_weibo1.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		15D8841E1C0D74EA00F1467B /* StatusOriginalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusOriginalView.swift; sourceTree = "<group>"; };
 		15D884201C0D751200F1467B /* StatusBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBottomView.swift; sourceTree = "<group>"; };
 		15F5D7671C0F1C5A00B4BD77 /* PicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicView.swift; sourceTree = "<group>"; };
+		15F5D7691C0F393100B4BD77 /* NetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTool.swift; sourceTree = "<group>"; };
 		22ECE01DDD172FB4E53B94A1 /* Pods_weibo1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weibo1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFCE70E29C5210CA2C1E553 /* Pods-weibo1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo1.release.xcconfig"; path = "Pods/Target Support Files/Pods-weibo1/Pods-weibo1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +166,7 @@
 				15C913841C073F250087A389 /* globalFile.swift */,
 				15D8840B1C0C133100F1467B /* Label+Extension.swift */,
 				15D884091C0C12E700F1467B /* Button+Extension.swift */,
+				15F5D7691C0F393100B4BD77 /* NetworkTool.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				15C9138B1C075F8C0087A389 /* BaseTabVC.swift in Sources */,
 				15D884151C0D6A0800F1467B /* StatusCell.swift in Sources */,
 				1568448C1C0AD1F0000E7168 /* WelcomeVC.swift in Sources */,
+				15F5D76A1C0F393100B4BD77 /* NetworkTool.swift in Sources */,
 				15C913851C073F250087A389 /* globalFile.swift in Sources */,
 				15BF71161C0E0595006392A5 /* StatusPictureView.swift in Sources */,
 				15F5D7681C0F1C5A00B4BD77 /* PicView.swift in Sources */,
