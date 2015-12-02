@@ -26,11 +26,17 @@ class Status: NSObject {
                 print("数据加载失败")
                 return
             }
+//            print("在微博moxing中打印图片链接数组的个数\(pic_urls!.count)")////////////打印有值
+            imageURLs = [NSURL]()//实例化属性
             for oneURLDic in urls {
                 let oneURLStr = oneURLDic["thumbnail_pic"]
                 let url = NSURL(string: oneURLStr!)!
-                imageURLs?.append(url)
+//                 print("在微博moxing中打印图片链接数组的个数\(url)")//在这儿也有值
+                imageURLs?.append(url)//这一步计算有问题
+//                 print("在微博moxing中打印图片链接数组的个数\(imageURLs?.count)")
             }
+//            print("在微博moxing中打印图片链接数组的个数\(imageURLs?.count)")////////////打印全空
+
         }
     
     }

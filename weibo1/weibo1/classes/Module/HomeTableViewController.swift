@@ -78,12 +78,14 @@ class HomeTableViewController: BaseTabVC {
     func prepearForTableViewInfo (){
         //注册cell
         tableView.registerClass(StatusCell.self, forCellReuseIdentifier: "HomeCell")
-        //预估行高等等
-//        tableView.estimatedRowHeight = 300
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.separatorStyle = .None
+        //设置tableView自动计算行高 必须对于容器视图有一个自上而下的约束
+        //设置预估行高
+        tableView.estimatedRowHeight = 300
+//        //设置行高自动计算
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorStyle = .None
 
-        tableView.rowHeight = 300
+//        tableView.rowHeight = 300
     }
 
     override func didReceiveMemoryWarning() {

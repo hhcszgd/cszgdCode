@@ -18,7 +18,7 @@ class StatusOriginalView: UIView {
             common_icon.image = status?.user!.mbrankImage
             nameLabel.text = status?.user?.name
             textLabel.text = status?.text
-            pictureView.imgURLs = status?.imageURLs//给collectionView传递数据
+            pictureView.imageURLs = status?.imageURLs//给collectionView传递数据
 //            creatTimeLabel.text = status?.created_at
 //            source.text = status?.source
         }
@@ -40,7 +40,7 @@ class StatusOriginalView: UIView {
         self.addSubview(pictureView)
         
         iconImageView.snp_makeConstraints { (make) -> Void in
-            make.left.top.equalTo(self.snp_left).offset(margin)
+            make.left.top.equalTo(self/*.snp_left*/).offset(margin) // 这都能写错, 傻b
             make.width.height.equalTo(iconWidth)
         }
         avatar.snp_makeConstraints { (make) -> Void in
@@ -49,11 +49,11 @@ class StatusOriginalView: UIView {
         }
         nameLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconImageView.snp_right).offset(margin)
-            make.top.equalTo(self.snp_top).offset(margin)
+            make.top.equalTo(iconImageView.snp_top)
         }
         common_icon.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(nameLabel.snp_right).offset(margin)
-            make.top.equalTo(self.snp_top).offset(margin)
+            make.top.equalTo(nameLabel.snp_top).offset(margin)
         }
         creatTimeLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconImageView.snp_right).offset(margin)
@@ -64,21 +64,21 @@ class StatusOriginalView: UIView {
             make.top.equalTo(nameLabel.snp_bottom)//.offset(margin)
         }
         textLabel.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(self.snp_left).offset(margin)
+            make.left.equalTo(iconImageView.snp_left)//.offset(margin)
             make.top.equalTo(iconImageView.snp_bottom).offset(margin)
-            make.bottom.equalTo(self.snp_bottom).offset(margin)
+
         }
         
-        //这里添加图片视图
-//        pictureView.snp_makeConstraints { (make) -> Void in
-//            make.top.equalTo(textLabel.snp_bottom).offset(margin)
-//            make.left.equalTo(textLabel.snp_left)
+//        这里添加图片视图
+        pictureView.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(textLabel.snp_bottom).offset(margin)
+            make.left.equalTo(textLabel.snp_left)
 //            make.size.equalTo(CGSize(width: 100, height: 100))
-//        }
+        }
        
         
         self.snp_makeConstraints { (make) -> Void in
-            make.bottom.equalTo(textLabel.snp_bottom)
+            make.bottom.equalTo(pictureView.snp_bottom)
         }
 
     }
@@ -93,7 +93,7 @@ class StatusOriginalView: UIView {
     lazy var source : UILabel = UILabel(titleStr: "source", fontSize: 12, titleColor: UIColor.grayColor())
     
     lazy var textLabel : UILabel = UILabel(titleStr: "微博正文占位符", fontSize: 16, titleColor: UIColor.grayColor(), margin: margin)
-    private lazy var pictureView: StatusPicView = StatusPicView()
+    private lazy var pictureView: PicView = PicView()
     
     
     

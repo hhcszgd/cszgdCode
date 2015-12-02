@@ -19,13 +19,15 @@ cell里面分两大部分
 2 , 底部评论,转发等视图部分
 */
 import UIKit
+let StatusCellMargin: CGFloat = 12
+let StatusCellImageWidth: CGFloat = 35
+
   let margin : CGFloat = 10.0
     let iconWidth : CGFloat = 35.0
 class StatusCell: UITableViewCell {
   
     private lazy var statusOriginalView : StatusOriginalView = StatusOriginalView()
     private lazy var statusBottomView : StatusBottomView = StatusBottomView()
-    private lazy var statusPicView : StatusPicView = StatusPicView()
     var status: Status? {
         didSet {
                         statusOriginalView.status = status
@@ -49,10 +51,10 @@ class StatusCell: UITableViewCell {
             make.height.equalTo(40)
 //            make.bottom.equalTo(contentView)
         }
-//        contentView.snp_makeConstraints { (make) -> Void in
-////            make.top.left.right.equalTo(self)
-//            make.bottom.equalTo(statusBottomView.snp_bottom)
-//        }
+        contentView.snp_makeConstraints { (make) -> Void in
+            make.top.left.right.equalTo(self)
+            make.bottom.equalTo(statusBottomView.snp_bottom).offset(10)
+        }
         
     }
     
