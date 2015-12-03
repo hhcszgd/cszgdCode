@@ -11,6 +11,8 @@
 		154E429D1C0A054A00E89724 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E429C1C0A054A00E89724 /* Account.swift */; };
 		1568448C1C0AD1F0000E7168 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1568448B1C0AD1F0000E7168 /* WelcomeVC.swift */; };
 		1569BC3E1C08288200BDB082 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1569BC3D1C08288200BDB082 /* LoginVC.swift */; };
+		1593853D1C0F44180085C473 /* StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1593853C1C0F44180085C473 /* StatusListViewModel.swift */; };
+		1593853F1C0F527D0085C473 /* StatusRetweetedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1593853E1C0F527D0085C473 /* StatusRetweetedView.swift */; };
 		15A6E7001C09E9500049027B /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A6E6FF1C09E9500049027B /* UserAccountViewModel.swift */; };
 		15BF71161C0E0595006392A5 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF71151C0E0595006392A5 /* StatusPictureView.swift */; };
 		15C913591C06D3FD0087A389 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C913581C06D3FD0087A389 /* AppDelegate.swift */; };
@@ -44,6 +46,8 @@
 		154E429C1C0A054A00E89724 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1568448B1C0AD1F0000E7168 /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		1569BC3D1C08288200BDB082 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		1593853C1C0F44180085C473 /* StatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusListViewModel.swift; sourceTree = "<group>"; };
+		1593853E1C0F527D0085C473 /* StatusRetweetedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusRetweetedView.swift; sourceTree = "<group>"; };
 		15A6E6FF1C09E9500049027B /* UserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		15BF71151C0E0595006392A5 /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		15C913551C06D3FD0087A389 /* weibo1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				15A6E6FF1C09E9500049027B /* UserAccountViewModel.swift */,
+				1593853C1C0F44180085C473 /* StatusListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				15D8841E1C0D74EA00F1467B /* StatusOriginalView.swift */,
 				15BF71151C0E0595006392A5 /* StatusPictureView.swift */,
 				15F5D7671C0F1C5A00B4BD77 /* PicView.swift */,
+				1593853E1C0F527D0085C473 /* StatusRetweetedView.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -374,10 +380,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1593853D1C0F44180085C473 /* StatusListViewModel.swift in Sources */,
 				15D8841F1C0D74EA00F1467B /* StatusOriginalView.swift in Sources */,
 				15C913831C06D9BA0087A389 /* HomeTableViewController.swift in Sources */,
 				15C9135B1C06D3FD0087A389 /* ViewController.swift in Sources */,
 				1525B77A1C0A96AA00F7B938 /* NewFeatureCollectionVC.swift in Sources */,
+				1593853F1C0F527D0085C473 /* StatusRetweetedView.swift in Sources */,
 				15C9137D1C06D9760087A389 /* ProfileTableViewController.swift in Sources */,
 				15D884211C0D751200F1467B /* StatusBottomView.swift in Sources */,
 				15C9138D1C0762580087A389 /* VisitorView.swift in Sources */,

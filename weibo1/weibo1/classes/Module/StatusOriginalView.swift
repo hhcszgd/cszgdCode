@@ -21,6 +21,8 @@ class StatusOriginalView: UIView {
             pictureView.imageURLs = status?.imageURLs//给collectionView传递数据
 //            creatTimeLabel.text = status?.created_at
 //            source.text = status?.source
+            constrain?.uninstall()
+
             if let tempURLs = status?.imageURLs where tempURLs.count != 0{
                 pictureView.imageURLs = tempURLs
                 self.snp_updateConstraints(closure: { (make) -> Void in

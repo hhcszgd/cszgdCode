@@ -28,9 +28,12 @@ class StatusCell: UITableViewCell {
   
     private lazy var statusOriginalView : StatusOriginalView = StatusOriginalView()
     private lazy var statusBottomView : StatusBottomView = StatusBottomView()
+    private lazy var statusRetweetedView : StatusRetweetedView = StatusRetweetedView ()
     var status: Status? {
         didSet {
                         statusOriginalView.status = status
+                        statusRetweetedView.statuses1 = status?.retweeted_status/////////////////////
+                        print("测试测试转发模型数据\(statusRetweetedView.statuses1)")
         }
     }
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -40,24 +43,59 @@ class StatusCell: UITableViewCell {
     func setUpUI(){
         
         contentView.addSubview(statusOriginalView)
-        contentView.addSubview(statusBottomView)        
+        contentView.addSubview(statusRetweetedView)
+        contentView.addSubview(statusBottomView)
+        
+        
+        
+        
+        
+        
         statusOriginalView.snp_makeConstraints { (make) -> Void in
             make.top.left.right.equalTo(contentView)
         }
-
+        statusRetweetedView.snp_makeConstraints { (make) -> Void in
+            make.left.right.equalTo(contentView).offset(margin)
+            make.top.equalTo(statusOriginalView.snp_bottom)
+        
         statusBottomView.snp_makeConstraints { (make) -> Void in
             make.left.right.equalTo(contentView)
-            make.top.equalTo(statusOriginalView.snp_bottom)
+            make.top.equalTo(statusRetweetedView.snp_bottom)
             make.height.equalTo(40)
-//            make.bottom.equalTo(contentView)
+            //            make.bottom.equalTo(contentView)
+        }
+
+            
         }
         contentView.snp_makeConstraints { (make) -> Void in
             make.top.left.right.equalTo(self)
             make.bottom.equalTo(statusBottomView.snp_bottom)//.offset(10)
         }
         
+      
+        
+//        statusOriginalView.snp_makeConstraints { (make) -> Void in
+//            make.top.left.right.equalTo(contentView)
+//        }
+//
+//        statusBottomView.snp_makeConstraints { (make) -> Void in
+//            make.left.right.equalTo(contentView)
+//            make.top.equalTo(statusOriginalView.snp_bottom)
+//            make.height.equalTo(40)
+////            make.bottom.equalTo(contentView)
+//        }
+//        contentView.snp_makeConstraints { (make) -> Void in
+//            make.top.left.right.equalTo(self)
+//            make.bottom.equalTo(statusBottomView.snp_bottom)//.offset(10)
+//        }
+//
+        
+        
+        
+        
+        
+        
     }
-    
     
     
     

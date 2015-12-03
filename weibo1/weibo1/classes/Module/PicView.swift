@@ -1,5 +1,4 @@
 //
-//  StatusPictureView.swift
 //  Weibo
 //
 //  Created by apple on 15/11/30.
@@ -24,6 +23,7 @@ class PicView: UICollectionView {
             self.snp_updateConstraints { (make) -> Void in
                 make.size.equalTo(pSize)
             }
+            
             
             //属性视图
             reloadData()

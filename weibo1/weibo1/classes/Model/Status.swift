@@ -43,6 +43,14 @@ class Status: NSObject {
     
     }
     var imageURLs: [NSURL]?
+    //定义同一的图片数组 原创微博 + 转发微博
+    var pictureURLs: [NSURL]? {
+        if retweeted_status != nil {
+            return retweeted_status?.imageURLs
+        }
+        
+        return imageURLs
+    }
     
     init (dic : [String : AnyObject ]){
         super.init()
@@ -57,6 +65,14 @@ class Status: NSObject {
             }
             return
             
+        }
+        //判断user键 对应的value  能否转化为 User(dict  对应的字典
+        if key == "retweeted_status" {
+            if let dict = value as? [String : AnyObject]  {
+                //字典转模型
+                retweeted_status = Status(dic: dict)
+            }
+            return
         }
         super.setValue(value, forKey: key)
     }
