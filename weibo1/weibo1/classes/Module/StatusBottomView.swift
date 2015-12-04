@@ -20,6 +20,7 @@ class StatusBottomView: UIView {
         self.addSubview(leftBtn)
         self.addSubview(midBtn)
         self.addSubview(rightBtn)
+        leftBtn.addTarget(self, action: "zhuanfa:", forControlEvents: UIControlEvents.TouchUpInside)
         
         leftBtn.snp_makeConstraints { (make) -> Void in
             make.top.left.bottom.equalTo(self)
@@ -37,6 +38,11 @@ class StatusBottomView: UIView {
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    func zhuanfa (sender : UIButton){
+        sender.targateResponderVC()?.pushViewController(RetweeterVC(), animated: true)
+        print("点击转发按钮")
+    
     }
     /*
     // Only override drawRect: if you perform custom drawing.

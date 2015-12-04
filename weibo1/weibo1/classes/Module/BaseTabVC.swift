@@ -16,6 +16,7 @@ class BaseTabVC: UITableViewController , VisitorViewDelegate {//遵守登录注�
     override func viewDidLoad() {
         if isLogin {//如果登录 , 就提供数据并显示
         super.viewDidLoad()
+            
         }else{//如果没有登录, 就提供一套访客视图
             visitorView.backgroundColor = UIColor.greenColor()//设置访客视图的背景颜色(每必要)
             self.view=visitorView//把tableView替换成自定义的访客visitorView

@@ -39,7 +39,7 @@ class BarViewController: UITabBarController {
     //:MARK 抽取一个每一个控制器对应的按钮的图片和文字
     func addVCMethod(title : String , VC : UIViewController ,imgName : String ){
     
-        let navVC = UINavigationController(rootViewController: VC)
+        let navVC = BaseNavVC(rootViewController: VC)
         VC.title = title
         VC.tabBarItem.image = UIImage(named: imgName)
         self.tabBar.tintColor = themeColor

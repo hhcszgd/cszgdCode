@@ -15,6 +15,9 @@
 		1593853F1C0F527D0085C473 /* StatusRetweetedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1593853E1C0F527D0085C473 /* StatusRetweetedView.swift */; };
 		15A6E7001C09E9500049027B /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A6E6FF1C09E9500049027B /* UserAccountViewModel.swift */; };
 		15BF71161C0E0595006392A5 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF71151C0E0595006392A5 /* StatusPictureView.swift */; };
+		15BF72021C11579300AD07CA /* UIView+TargateResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF72011C11579300AD07CA /* UIView+TargateResponder.swift */; };
+		15BF72041C11607800AD07CA /* RetweeterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF72031C11607800AD07CA /* RetweeterVC.swift */; };
+		15BF72061C116BCE00AD07CA /* BaseNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF72051C116BCE00AD07CA /* BaseNavVC.swift */; };
 		15C913591C06D3FD0087A389 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C913581C06D3FD0087A389 /* AppDelegate.swift */; };
 		15C9135B1C06D3FD0087A389 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C9135A1C06D3FD0087A389 /* ViewController.swift */; };
 		15C913611C06D3FD0087A389 /* weibo1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15C9135F1C06D3FD0087A389 /* weibo1.xcdatamodeld */; };
@@ -43,6 +46,7 @@
 /* Begin PBXFileReference section */
 		05A288540250C379990124F7 /* Pods-weibo1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weibo1/Pods-weibo1.debug.xcconfig"; sourceTree = "<group>"; };
 		1525B7791C0A96AA00F7B938 /* NewFeatureCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionVC.swift; sourceTree = "<group>"; };
+		153E38C01C10658C007765BD /* weibo1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "weibo1-Bridging-Header.h"; sourceTree = "<group>"; };
 		154E429C1C0A054A00E89724 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1568448B1C0AD1F0000E7168 /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		1569BC3D1C08288200BDB082 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -50,6 +54,9 @@
 		1593853E1C0F527D0085C473 /* StatusRetweetedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusRetweetedView.swift; sourceTree = "<group>"; };
 		15A6E6FF1C09E9500049027B /* UserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		15BF71151C0E0595006392A5 /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
+		15BF72011C11579300AD07CA /* UIView+TargateResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+TargateResponder.swift"; sourceTree = "<group>"; };
+		15BF72031C11607800AD07CA /* RetweeterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetweeterVC.swift; sourceTree = "<group>"; };
+		15BF72051C116BCE00AD07CA /* BaseNavVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavVC.swift; sourceTree = "<group>"; };
 		15C913551C06D3FD0087A389 /* weibo1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C913581C06D3FD0087A389 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15C9135A1C06D3FD0087A389 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +178,7 @@
 				15D8840B1C0C133100F1467B /* Label+Extension.swift */,
 				15D884091C0C12E700F1467B /* Button+Extension.swift */,
 				15F5D7691C0F393100B4BD77 /* NetworkTool.swift */,
+				15BF72011C11579300AD07CA /* UIView+TargateResponder.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				15C9137A1C06D9420087A389 /* BarViewController.swift */,
+				15BF72051C116BCE00AD07CA /* BaseNavVC.swift */,
 				15C913881C07438E0087A389 /* CustomTabBar.swift */,
 				15C9138A1C075F8C0087A389 /* BaseTabVC.swift */,
 				1569BC3D1C08288200BDB082 /* LoginVC.swift */,
@@ -238,6 +247,8 @@
 				15BF71151C0E0595006392A5 /* StatusPictureView.swift */,
 				15F5D7671C0F1C5A00B4BD77 /* PicView.swift */,
 				1593853E1C0F527D0085C473 /* StatusRetweetedView.swift */,
+				153E38C01C10658C007765BD /* weibo1-Bridging-Header.h */,
+				15BF72031C11607800AD07CA /* RetweeterVC.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -383,6 +394,7 @@
 				1593853D1C0F44180085C473 /* StatusListViewModel.swift in Sources */,
 				15D8841F1C0D74EA00F1467B /* StatusOriginalView.swift in Sources */,
 				15C913831C06D9BA0087A389 /* HomeTableViewController.swift in Sources */,
+				15BF72061C116BCE00AD07CA /* BaseNavVC.swift in Sources */,
 				15C9135B1C06D3FD0087A389 /* ViewController.swift in Sources */,
 				1525B77A1C0A96AA00F7B938 /* NewFeatureCollectionVC.swift in Sources */,
 				1593853F1C0F527D0085C473 /* StatusRetweetedView.swift in Sources */,
@@ -398,12 +410,14 @@
 				15D884101C0CA6C400F1467B /* Status.swift in Sources */,
 				15C913611C06D3FD0087A389 /* weibo1.xcdatamodeld in Sources */,
 				1569BC3E1C08288200BDB082 /* LoginVC.swift in Sources */,
+				15BF72041C11607800AD07CA /* RetweeterVC.swift in Sources */,
 				15C9138B1C075F8C0087A389 /* BaseTabVC.swift in Sources */,
 				15D884151C0D6A0800F1467B /* StatusCell.swift in Sources */,
 				1568448C1C0AD1F0000E7168 /* WelcomeVC.swift in Sources */,
 				15F5D76A1C0F393100B4BD77 /* NetworkTool.swift in Sources */,
 				15C913851C073F250087A389 /* globalFile.swift in Sources */,
 				15BF71161C0E0595006392A5 /* StatusPictureView.swift in Sources */,
+				15BF72021C11579300AD07CA /* UIView+TargateResponder.swift in Sources */,
 				15F5D7681C0F1C5A00B4BD77 /* PicView.swift in Sources */,
 				15C913811C06D9A80087A389 /* MessageTableViewController.swift in Sources */,
 				15D8840A1C0C12E700F1467B /* Button+Extension.swift in Sources */,
@@ -502,11 +516,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = weibo1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hhcszgd.weibo1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "weibo1/classes/Module/weibo1-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -516,11 +533,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = weibo1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hhcszgd.weibo1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "weibo1/classes/Module/weibo1-Bridging-Header.h";
 			};
 			name = Release;
 		};

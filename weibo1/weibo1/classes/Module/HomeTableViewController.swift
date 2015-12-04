@@ -15,7 +15,9 @@ class HomeTableViewController: BaseTabVC {
     private lazy var statuses = [Status]()
     override func viewDidLoad() {
 /////////////////////////////////////在给tableViewCell注册之前必须判断 用户是否处于登录状态, 如果是处于登录状态, 才去注册,并实现相应的代理方法和数据源方法  可以通过父类的属性isLogin 来判断当前用户是否是处于登录状态
-        
+        refreshControl =  UIRefreshControl()
+        refreshControl?.tintColor=UIColor.redColor()//红色活动指示器
+        refreshControl?.addTarget(self, action: "shuaxin", forControlEvents: UIControlEvents.ValueChanged)
         super.viewDidLoad()
         if !isLogin {
             print ("请登录,好不好")
@@ -42,6 +44,24 @@ class HomeTableViewController: BaseTabVC {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 
     }
+    func shuaxin (){
+        print("开始刷新")
+        loadDataSource { (list) -> () in//根据token去加载所需数据
+            guard let temp  = list else {
+                SVProgressHUD.showErrorWithStatus("数据加载失败")
+                return
+            }
+            
+            self.refreshControl?.endRefreshing()
+            //记录数组
+            self.statuses = temp
+                    print("刷新完毕")
+            self.tableView.reloadData()//代码是在viewDidLoad中加载的, 当view加载完成后,就刷新yix
+            //            print("打印statuses:\(self.statuses)")
+        }
+    }
+    
+    
     func loadDataSource ( finished: (list :[Status]?) ->() ){
         //官方URL 
         let urlStr = "https://api.weibo.com/2/statuses/home_timeline.json"
@@ -75,6 +95,22 @@ class HomeTableViewController: BaseTabVC {
                 //错误处理
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     func prepearForTableViewInfo (){
         //注册cell
         tableView.registerClass(StatusCell.self, forCellReuseIdentifier: "HomeCell")
@@ -84,6 +120,7 @@ class HomeTableViewController: BaseTabVC {
 //        //设置行高自动计算
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorStyle = .None
+        tableView.allowsSelection=false
 
 //        tableView.rowHeight = 300
     }

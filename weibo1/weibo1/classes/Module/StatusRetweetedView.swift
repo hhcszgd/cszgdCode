@@ -5,7 +5,9 @@
 //  Created by WY on 15/12/3.
 //  Copyright © 2015年 WY. All rights reserved.
 //
+/**
 
+*/
 import UIKit
 import SnapKit
 class StatusRetweetedView: UIView {
@@ -15,7 +17,7 @@ class StatusRetweetedView: UIView {
     lazy var retweetImgView : PicView = PicView()
     var statuses1 :Status? {
         didSet{
-
+            
             retweetLabel.text = "@: " + (statuses1?.user?.name ?? "") + "\t\t\t\t" + (statuses1?.text ?? "")
             retweetImgView.imageURLs = statuses1?.imageURLs//statuses?.imageURLs//////////////////////////////
             

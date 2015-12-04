@@ -19,21 +19,37 @@ cell里面分两大部分
 2 , 底部评论,转发等视图部分
 */
 import UIKit
+import SnapKit
 let StatusCellMargin: CGFloat = 12
 let StatusCellImageWidth: CGFloat = 35
 
   let margin : CGFloat = 10.0
     let iconWidth : CGFloat = 35.0
 class StatusCell: UITableViewCell {
-  
+    private var bottomConstraints: Constraint?
     private lazy var statusOriginalView : StatusOriginalView = StatusOriginalView()
     private lazy var statusBottomView : StatusBottomView = StatusBottomView()
     private lazy var statusRetweetedView : StatusRetweetedView = StatusRetweetedView ()
     var status: Status? {
         didSet {
                         statusOriginalView.status = status
-                        statusRetweetedView.statuses1 = status?.retweeted_status/////////////////////
-                        print("测试测试转发模型数据\(statusRetweetedView.statuses1)")
+            if status?.retweeted_status != nil{
+                                        statusRetweetedView.statuses1 = status?.retweeted_status/////////////////////
+//                                        print("测试测试转发模型数据\(statusRetweetedView.statuses1)")
+                                    statusRetweetedView.hidden = false
+                statusBottomView.snp_updateConstraints(closure: { (make) -> Void in
+                    self.bottomConstraints = make.top.equalTo(self.statusRetweetedView.snp_bottom).constraint
+                })
+                    print("转发微博")
+            }else{
+                statusRetweetedView.hidden = true
+                statusBottomView.snp_updateConstraints(closure: { (make) -> Void in
+                    self.bottomConstraints = make.top.equalTo(self.statusOriginalView.snp_bottom).constraint
+                })
+                                    print("原创微博")
+            }
+//                        statusRetweetedView.statuses1 = status?.retweeted_status/////////////////////
+//                        print("测试测试转发模型数据\(statusRetweetedView.statuses1)")
         }
     }
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -60,7 +76,8 @@ class StatusCell: UITableViewCell {
         
         statusBottomView.snp_makeConstraints { (make) -> Void in
             make.left.right.equalTo(contentView)
-            make.top.equalTo(statusRetweetedView.snp_bottom)
+            //MARK: 记录,后期调整
+           self.bottomConstraints = make.top.equalTo(statusRetweetedView.snp_bottom).constraint
             make.height.equalTo(40)
             //            make.bottom.equalTo(contentView)
         }
